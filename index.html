@@ -10,15 +10,14 @@
 </head>
 <body>
 
-    <div class="animation-container">
+<div class="animation-container">
     <img src="Medias/level-4-sky.jpg" alt="" class="skyimg">
     <img src="Medias/level-2-soap.png" alt="" class="soapimg">
-    
     <img src="Medias/level-1-soaplines.png" alt="" class="soaplinesimg">
     <img src="Medias/level-3-armwiper.png" alt="" class="armwiperimg">
 </div>
 
-    <section class="maincontent">
+<section class="maincontent">
     <div class="content glass-card">
         <header class="headertext">
             <div class="logo">
@@ -51,24 +50,56 @@
 
         <div class="job-grid">
             <article class="service-box">
-                <h4>Reinigung</h4>
+                <h4>Services</h4>
                 <ul>
                     <li>Glasflächenreinigung</li>
-                </ul>
-            </article>
-            <article class="service-box">
-                <h4>Hausmeister</h4>
-                <ul>
-                    <li>Dehnungsfugen</li>
-                    <li>Renovierarbeiten</li>
+                    <li>Garten und Landschaftsbau</li>
                     <li>Gartenpflege</li>
-                    <li>Ausbesserungen</li>
-                    
-                </ul>
+                    <li>Erneuerung von Dehnungsfugen</li>
+                    </ul>
             </article>
+<article class="service-box">
+    <h4>Projekte</h4>
+    <div class="carousel-container">
+        <div class="carousel-wrapper">
+            <img src="Medias/Projekt01.png" alt="Projekt 1" class="carousel-img">
+            <img src="Medias/Projekt02.png" alt="Projekt 2" class="carousel-img">
+            <img src="Medias/Projekt03.png" alt="Projekt 3" class="carousel-img">
+            <img src="Medias/Projekt04.png" alt="Projekt 4" class="carousel-img">
+            <img src="Medias/Projekt05.png" alt="Projekt 5" class="carousel-img">
+            <img src="Medias/Projekt06.png" alt="Projekt 6" class="carousel-img">
+            <img src="Medias/Projekt07.png" alt="Projekt 7" class="carousel-img">
+        </div>
+        <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+</article>
         </div>
     </div>
+
+
+<footer style="margin-top: 50px; padding-bottom: 30px; position: relative; z-index: 100;">
+    <div style="text-align: center; color: #000000; font-size: 0.8rem; font-family: 'Montserrat', sans-serif;">
+        <p>© 2026 Jo's Gebäudeservice - Alle Rechte vorbehalten</p>
+        <div style="margin-top: 8px;">
+            <a href="javascript:void(0)" onclick="openModal('impressum')" style="color: #000000; text-decoration: none;">Impressum</a> | 
+            <a href="javascript:void(0)" onclick="openModal('datenschutz')" style="color: #000000; text-decoration: none;">Datenschutz</a> | 
+            <a href="javascript:void(0)" onclick="openModal('agb')" style="color: #000000; text-decoration: none;">AGB</a>
+        </div>
+        <p style="margin-top: 10px; opacity: 0.5;">Design by <a href="mailto:codingsbums@pm.me" style="color: #000000; text-decoration: none;">@codingsbums</a></p>
+    </div>
+</footer>
+
+
 </section>
+
+<div id="info-modal" onclick="closeModal()" style="position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 20px;">
+    <div class="glass-card" onclick="event.stopPropagation()" style="max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto; padding: 30px; position: relative; pointer-events: auto; background: rgba(255, 255, 255, 0.9); border-radius: 20px;">
+        <span onclick="closeModal()" style="position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer; color: #222; font-family: Arial, sans-serif;">&times;</span>
+        <div id="modal-text-content" style="color: #222;">
+            </div>
+    </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
