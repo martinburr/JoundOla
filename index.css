@@ -67,7 +67,6 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    /* WICHTIG: Keine feste Höhe von 100dvh! */
     height: auto; 
     min-height: 100dvh;
     
@@ -76,11 +75,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 10vh; /* Startposition der Karte */
+    padding-top: 10vh;
     pointer-events: none;
     will-change: transform;
-    
-    /* Erlaubt dem Footer, über den Rand hinaus zu existieren */
     overflow: visible !important; 
 }
 
@@ -173,10 +170,10 @@ body {
 .service-box h4 {
     color: #f7921e;
     font-family: 'montserratbold';
-    font-size: clamp(1.1rem, 2vw, 1.4rem);
-    margin-bottom: 1rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem) !important;
+    margin-bottom: 2rem;
     text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
 }
 
 .service-box ul {
@@ -190,7 +187,7 @@ body {
     font-family: 'montserratbold';
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     color: #222;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -199,7 +196,7 @@ body {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Breite an deine Box anpassen */
+    max-width: 300px;
     margin: 10px auto;
     overflow: hidden;
     border-radius: 10px;
@@ -215,7 +212,7 @@ body {
     width: 100%;
     flex-shrink: 0;
     object-fit: cover;
-    aspect-ratio: 4 / 3; /* Sorgt für einheitliche Bildhöhen */
+    aspect-ratio: 4 / 3;
 }
 
 .carousel-btn {
@@ -279,7 +276,7 @@ footer {
     position: relative;
     pointer-events: auto;
     width: 100%;
-    margin-top: 80px; /* Genug Abstand zur Glaskarte */
+    margin-top: 80px; 
     padding-bottom: 60px;
     z-index: 110;
 }
@@ -558,8 +555,8 @@ footer {
 @media screen and (orientation: landscape) and (max-height: 500px) {
     .modal-center-box {
         max-width: 90% !important;
-        max-height: 95vh !important; /* Fast volle Bildschirmhöhe nutzen */
-        padding: 15px 20px !important; /* Padding drastisch reduzieren */
+        max-height: 95vh !important;
+        padding: 15px 20px !important; 
         margin-top: 5px;
     }
 
@@ -569,7 +566,7 @@ footer {
     }
 
     #modal-text-content div {
-        font-size: 0.75rem !important; /* Schrift kleiner machen */
+        font-size: 0.75rem !important; 
         line-height: 1.3 !important;
         display: grid;
         gap: 10px;
