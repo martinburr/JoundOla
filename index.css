@@ -1,0 +1,494 @@
+/* 1. Reset & Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url('/Medias/fonts/Montserrat-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'montserratbold';
+  src: url('/Medias/fonts/Montserrat-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+body {
+  font-family: 'montserratregular', sans-serif;
+  min-height: 350vh;
+  overflow-x: hidden;
+  width: 100%;
+  background-color: #000;
+}
+
+/* 2. Hintergrund-Animation Ebenen */
+.animation-container img {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100dvh;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.skyimg { z-index: 1; }
+
+.soapimg { z-index: 2; }
+
+.soaplinesimg {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100dvh;
+  object-fit: cover;
+  z-index: 3;
+  clip-path: inset(0% 0% 100% 0%);
+  pointer-events: none;
+  will-change: clip-path;
+}
+
+.armwiperimg { 
+  z-index: 4; 
+  height: 110dvh; 
+}
+
+/* 3. Die Plattform (Inhalt) */
+.maincontent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    pointer-events: none;
+    will-change: transform;
+}
+
+/* Der Glas-Effekt & Karten-Container */
+.glass-card {
+    position: relative;
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 985px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;  
+    overflow: visible; 
+}
+
+/* 4. Logo & Titel zentriert */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.logo img {
+  width: clamp(6rem, 12vw, 9rem);
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.logo h1 {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+  font-family: 'montserratbold';
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.titletext h3 { 
+  color: #000; 
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+  width: 100%;
+}
+
+/* 5. Team Foto */
+.team-wrapper {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.team-photo {
+    width: clamp(180px, 50vw, 260px); 
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 6. Dienstleistungen Grid & Boxen zentriert */
+.job-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+}
+
+.service-box {
+    background: rgba(255, 255, 255, 0.4); 
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-box h4 {
+    color: #f7921e;
+    font-family: 'montserratbold';
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.service-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.service-box li {
+    font-family: 'montserratbold';
+    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    color: #222;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* 7. Kontakt Links */
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.contact-item {
+    text-decoration: none;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'montserratbold';
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px 22px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #f7921e;
+    background: #fff;
+    transform: translateY(-2px);
+}
+
+/* Media Query */
+@media (max-height: 500px) {
+    .glass-card {
+        max-height: 80dvh;
+    }
+    .team-wrapper { display: none; } /* Versteckt das Foto im Querformat, um Platz zu sparen */
+}
+
+/* Speziell für iPad 13 Pro Querformat und große Monitore */
+@media screen and (min-width: 1200px) {
+    .glass-card {
+        /* Erweitert die Platte auf großen Screens */
+        max-width: 1250px; 
+        width: 92%;
+        padding: 3.5rem; /* Mehr "Atemraum" für den edlen Look */
+    }
+
+    .job-grid {
+        /* Erhöht den Abstand zwischen Reinigung und Hausmeister */
+        gap: 3rem; 
+    }
+
+    .logo img {
+        /* Logo darf auf der großen Fläche etwas präsenter sein */
+        width: 10rem; 
+    }
+
+    .service-box {
+        padding: 2.5rem; /* Macht die inneren Boxen großzügiger */
+    }
+}
+
+
+/* Gezielter Fix für iPad Mini Querformat (744px Höhe) */
+@media screen and (orientation: landscape) and (max-height: 745px) {
+    
+    /* Wir sprechen das Bild extrem präzise an, um alle anderen Regeln zu schlagen */
+    .glass-card .team-wrapper .team-photo {
+        width: 130px !important;   /* Exakt 50% von 260px */
+        max-width: 130px !important;
+        height: auto !important;
+        max-height: 150px !important; /* Sicherheitssperre für die Höhe */
+        min-height: auto !important;
+        position: static !important; /* Falls es durch Fehler 'fixed' war */
+        margin: 0 auto !important;
+    }
+
+    .team-wrapper {
+        margin: 0.5rem 0 !important;
+        height: auto !important;
+    }
+
+    .glass-card {
+        padding: 1rem !important;
+        max-height: 92dvh !important;
+        overflow-y: auto !important; /* Ermöglicht Scrollen, falls es doch eng wird */
+    }
+
+    /* Logo verkleinern, um vertikalen Platz zu sparen */
+    .logo img {
+        height: 60px !important;
+        width: auto !important;
+    }
+}
+@media screen and (max-width: 1024px) {
+    /* Animationsebenen ausblenden */
+    .soapimg, .soaplinesimg, .armwiperimg {
+        display: none !important;
+    }
+    
+    /* Nur den Himmel als statischen Hintergrund behalten */
+    .skyimg {
+        height: 100dvh !important;
+        position: fixed !important;
+    }
+}
+
+
+/* 1. Animationen & Scroll-Zwang auf Handys stoppen */
+@media screen and (max-width: 900px) {
+    body {
+        min-height: 100vh !important; /* Stoppt die 350vh Scroll-Länge */
+        overflow-y: auto;
+    }
+
+    .soapimg, .soaplinesimg, .armwiperimg {
+        display: none !important; /* Keine störenden Animationsebenen */
+    }
+
+    .maincontent {
+        position: relative !important; /* Karte ist sofort da, kein Scrollen nötig */
+        height: auto;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* Startet oben am Bildschirm */
+        padding: 15px 10px;
+        pointer-events: auto;
+    }
+
+    .glass-card {
+        max-height: none !important; /* Karte wird so lang wie der Inhalt */
+        height: auto !important;
+        width: 95%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        overflow: visible !important;
+    }
+}
+
+/* 2. Spezifisch für das Verschwinden des Fotos im Querformat */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+    .team-wrapper {
+        display: flex !important; /* Erzwingt Sichtbarkeit, falls vorher 'none' */
+        margin: 10px 0 !important;
+    }
+
+    .team-photo {
+        width: 120px !important; /* Kompakte Größe für Querformat */
+        height: auto !important;
+    }
+    
+    .job-grid {
+        grid-template-columns: 1fr 1fr !important; /* Im Querformat lieber 2 Spalten */
+    }
+}
+
+/* 3. Smartphone Hochformat (Elemente untereinander) */
+@media screen and (max-width: 600px) and (orientation: portrait) {
+    .job-grid {
+        grid-template-columns: 1fr !important; /* Alles untereinander */
+    }
+    
+    .contact-links {
+        flex-direction: column;
+    }
+    
+    .team-photo {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* 1. Den Scroll-Zwang und die Überlänge stoppen */
+    body {
+        min-height: 100vh !important;
+        overflow-x: hidden; /* Verhindert horizontales Wackeln */
+    }
+
+    /* 2. Hintergrundbild absolut lückenlos fixieren */
+    .skyimg {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important; /* Zwingt das Bild ganz nach links */
+        width: 100vw !important; /* Volle Bildschirmbreite */
+        height: 100dvh !important; /* Volle Bildschirmhöhe */
+        transform: none !important; /* Löscht die translateX(-50%) Zentrierung */
+        object-fit: cover !important; /* Füllt den Raum perfekt aus */
+        z-index: 1;
+    }
+
+    /* 3. Alle Animationsebenen entfernen */
+    .soapimg, .soaplinesimg, .armwiperimg {
+        display: none !important;
+    }
+
+    /* 4. Glaskarte fixieren (keine Scroll-Animation) */
+    .maincontent {
+        position: relative !important;
+        top: 0 !important;
+        transform: none !important;
+        height: auto !important;
+        min-height: 100dvh;
+        display: flex !important;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 0;
+        z-index: 100;
+        pointer-events: auto;
+    }
+
+    .glass-card {
+        width: 92%;
+        margin: 0 auto;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 5. Elemente untereinander (Responsive) */
+    .job-grid {
+        display: flex !important;
+        flex-direction: column !important; /* Reinigung & Hausmeister untereinander */
+        width: 100%;
+        gap: 15px;
+    }
+
+    .service-box {
+        width: 100% !important;
+    }
+
+    /* Teamfoto: 50% kleiner im Querformat, normal im Hochformat */
+    .team-photo {
+        width: 180px; 
+        max-width: 80%;
+        height: auto !important; /* Verhindert Quetschen */
+        display: block !important;
+        margin: 15px auto;
+    }
+
+    /* Kontakt-Links untereinander */
+    .contact-links {
+        flex-direction: column !important;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Spezieller Feinschliff für Querformat (Landscape) */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .team-photo {
+        width: 120px !important; /* Im Querformat noch kleiner, damit man mehr sieht */
+    }
+    .logo img {
+        width: 80px;
+    }
+}
+
+/* Erzwungener Fix für iPhone SE / Schmale Handys */
+@media screen and (max-width: 375px) {
+    
+    /* 1. Den Container zwingen, den Text zu bändigen */
+    .contact-links .contact-item {
+        display: flex !important;
+        flex-direction: row !important; /* Icon und Text nebeneinander */
+        align-items: center !important;
+        padding: 5px 8px !important;
+        width: 100% !important;
+        min-width: 0 !important; /* Erlaubt das Schrumpfen des Inhalts */
+        overflow: hidden !important;
+    }
+
+    /* 2. Den Kreis drastisch verkleinern */
+    .contact-item .icon-circle {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important; /* Verhindert, dass der Kreis zum Oval wird */
+        flex-shrink: 0 !important;   /* Kreis darf NICHT schrumpfen */
+        margin-right: 6px !important;
+    }
+
+    .icon-circle img {
+        width: 10px !important;
+    }
+
+    /* 3. Die E-Mail-Adresse ZWINGEN zu schrumpfen */
+    .contact-item span {
+        font-size: 0.85rem !important;      /* Extrem klein */
+        letter-spacing: -0.05em !important; /* Buchstaben extrem eng */
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important; /* Macht Punkte (...) am Ende, falls zu lang */
+        flex-grow: 1 !important;
+        min-width: 0 !important;           /* Das ist der entscheidende Trick für Flex-Elemente! */
+        display: block !important;
+    }
+}
